@@ -14,13 +14,13 @@ The post quotes make.fun's announcement (https://x.com/makefunai/status/21249158
 
 ## Files
 
-- `POST.json` — the X post URL, author, and play code for this entry.
-- `main.ts` — validates `POST.json` (checks the post URL is a valid x.com status URL and the play code is present) and writes a summary as `entry.json` into the output directory only (`MAKEFUN_OUTPUT_DIR`, default `/output`). It makes no network requests and never writes into the repo directory.
+- `POST.json` — the entry, a single field: `{"url": "https://x.com/brobanditoo/status/2125168718095515820"}`.
+- `main.ts` — validates `POST.json` (checks the `url` is a plain x.com status URL from @brobanditoo) and writes a summary as `entry.json` into the output directory only (`MAKEFUN_OUTPUT_DIR`, default `/output`). It makes no network requests and never writes into the repo directory.
 
 ## Run
 
 ```sh
-MAKEFUN_OUTPUT_DIR=/tmp/post-x-out node main.ts
+MAKEFUN_OUTPUT_DIR=/tmp/post-x-out2 node main.ts
 ```
 
-This writes `/tmp/post-x-out/entry.json` with the `post_url`, `author`, and `play_code` from `POST.json`.
+This writes `/tmp/post-x-out2/entry.json` with the `url` from `POST.json`, plus `author` `brobanditoo` and `play_code` `9rack9n5`.
